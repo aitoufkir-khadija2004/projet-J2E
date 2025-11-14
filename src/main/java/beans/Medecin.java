@@ -1,9 +1,6 @@
 package beans;
 
-/**
- * Classe Medecin - Hérite de User
- * Représente un médecin de la clinique
- */
+
 public class Medecin extends User {
     
     private int specialiteId;
@@ -11,7 +8,6 @@ public class Medecin extends User {
     
     // pour affichage 
     private String nomSpecialite;
-    private String descriptionSpecialite;
     
   
     public Medecin() {
@@ -40,10 +36,6 @@ public class Medecin extends User {
         return nomSpecialite;
     }
     
-    public String getDescriptionSpecialite() {
-        return descriptionSpecialite;
-    }
-    
     
     public void setSpecialiteId(int specialiteId) {
         this.specialiteId = specialiteId;
@@ -57,10 +49,7 @@ public class Medecin extends User {
         this.nomSpecialite = nomSpecialite;
     }
     
-    public void setDescriptionSpecialite(String descriptionSpecialite) {
-        this.descriptionSpecialite = descriptionSpecialite;
-    }
-    
+
     @Override
     public String toString() {
         return "Medecin{"  +

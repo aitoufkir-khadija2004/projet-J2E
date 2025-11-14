@@ -10,6 +10,37 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 public class TestConnectionJDBC {
+	
+	 /**
+     * Méthode statique pour obtenir une connexion
+     * Utilisée par tous les DAO
+     */
+    public static Connection getConnection() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/gestion_file_attente";
+        String utilisateur = "root";
+        String motDePasse = "";
+        
+        try {
+            // Charger le driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Driver MySQL introuvable !", e);
+        }
+        
+        return DriverManager.getConnection(url, utilisateur, motDePasse);
+    }
+	
+	
+    public static void closeConnection(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+                System.out.println("Connexion fermée.");
+            } catch (SQLException e) {
+                System.err.println("Erreur lors de la fermeture de la connexion.");
+                e.printStackTrace();
+            } }
+        }
 
     /* La liste qui contiendra tous les résultats des tests */
     private List<String> notifications = new ArrayList<String>();

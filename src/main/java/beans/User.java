@@ -3,7 +3,7 @@ package beans;
 import java.sql.Timestamp;
 
 public abstract class User {
-   
+	protected int id;
     protected String codeUser;
     protected String nom;
     protected String prenom;
@@ -16,6 +16,7 @@ public abstract class User {
     
    
     public User() {
+    	 this.actif = true;
     }
     
    
@@ -28,8 +29,10 @@ public abstract class User {
         this.actif = true;
     }
     
+    public int getId() { 
+    	return id;
+    }
    
-    
     public String getCodeUser() {
         return codeUser;
     }
@@ -67,7 +70,9 @@ public abstract class User {
     }
     
     
-    
+    public void setId(int id) { 
+    	this.id = id; 
+    }
     public void setCodeUser(String codeUser) {
         this.codeUser = codeUser;
     }
@@ -107,10 +112,11 @@ public abstract class User {
     public String getNomComplet() {
         return prenom + " " + nom;
     }
-    
+   
     @Override
     public String toString() {
         return "User{" +
+                "id =" + id +'\'' +
                 ", codeUser='" + codeUser + '\'' +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
